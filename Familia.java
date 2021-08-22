@@ -8,15 +8,28 @@
 
 public class Familia 
 {
-    private String apellido;
-    private String miembros;
-    private String chicos;
-    private String grandes;
-    private String mascotas;
-    private String[][] Familias;
+    private String[] vectorF;
+    private String[][] familias = new String[15][];
     
-    public Familia(String a, String mi, String c, String g, String ma) //constructor
+    public Familia(String apellido, String miembros, String chicos, String grandes, String mascotas) //constructor
     {
+        vectorF = new String[5];
+        vectorF = new String[]{apellido, miembros, chicos, grandes, mascotas}; 
+
+        familias[0] = new String[]{"Esquivel", "4", "1", "3", "1"}; 
+        familias[1] = new String[]{"de León", "3", "0", "3", "1"}; 
+        familias[2] = new String[]{"Girón", "2", "0", "2", "0"}; 
+    } 
+
+    public String[][] ingresarFamilia(int p, String[][] f) 
+    { 
+        f[p] = vectorF;    
+        return f;
+    }
+
+    public String[][] getFamilias()
+    {
+        return familias;
     } 
     
 }
