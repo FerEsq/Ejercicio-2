@@ -8,15 +8,15 @@
 
 public class Familia 
 {
-    private Random rand; 
-    private boolean galleta;
-    private float confiabilidad;
+    private String apellido;
+    private String miembros;
+    private String chicos;
+    private String grandes;
+    private String mascotas;
+    private String[][] Familias;
     
-    public Familia() //constructor
-    { 
-        rand = new Random();
-        galleta = false;
-        confiabilidad = rand.nextFloat() * 10;
+    public Familia(String a, String mi, String c, String g, String ma) //constructor
+    {
     } 
     
 }
