@@ -1,4 +1,3 @@
-
 /* Nombre: Perro.java
  * Programador: Fernanda Esquivel (esq21542@uvg.edu.gt).
  * Descripción: ---------------------
@@ -6,7 +5,7 @@
  * Recursos: Visual Studio Code
  * Historial: Finalizado el 22.08.2021 */
 
-public class Perro 
+public class Perrito
 {
     private String raza;
     private String size;
@@ -20,7 +19,7 @@ public class Perro
                                "fila brasileño", "presa canario", "dóberman", "gran perro japónes", "mástin napolitano", "presa mallorqui",
                                 "dogo de burdeos", "bullmastiff", "bull terrier inglés", "bulldog americano", "rhodesiano", "rottweiler"};
     
-    public Perro(String r, String si, int e, int sa, String c, String n) //constructor
+    public Perrito(String r, String si, int e, int sa, String c, String n) //constructor
     {
         raza = r;
         size = si;
@@ -30,7 +29,6 @@ public class Perro
         nombre = c;
         asignado = false;
         peligro = false;    
-        
     } 
 
     public boolean getPeligrosidad()
@@ -38,9 +36,10 @@ public class Perro
         int c = 0;
         while (peligro == false)
         {
-            if (razasP[c] == raza.toLowerCase())
+            if (razasP[c].equals(raza.toLowerCase()))
             {
                 peligro = true;
+                break;
             }
             c++;
         }
@@ -57,7 +56,7 @@ public class Perro
         return size;
     }
 
-    public String getAsignado()
+    public boolean getAsignado()
     {
         return asignado;
     }

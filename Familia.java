@@ -9,11 +9,18 @@
 public class Familia 
 {
     private String[] vectorF;
-    private String[][] familias = new String[14][];
+    private String[][] familias = new String[15][];
+
+    public Familia()
+    {
+        familias[0] = new String[]{"Esquivel", "4", "1", "3", "1"}; 
+        familias[1] = new String[]{"De León", "3", "0", "3", "1"}; 
+        familias[2] = new String[]{"Girón", "2", "0", "2", "0"}; 
+    }
     
     public Familia(String apellido, String miembros, String chicos, String grandes, String mascotas) //constructor
     {
-        vectorF = new String[4];
+        vectorF = new String[5];
         vectorF = new String[]{apellido, miembros, chicos, grandes, mascotas}; 
 
         familias[0] = new String[]{"Esquivel", "4", "1", "3", "1"}; 
@@ -24,7 +31,7 @@ public class Familia
     public String[][] ingresarFamilia(int pos, String[][] fam) 
     { 
         fam[pos] = vectorF;    
-        return f;
+        return fam;
     }
 
     public String[][] getFamilias()
