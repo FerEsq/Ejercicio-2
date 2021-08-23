@@ -47,7 +47,7 @@ public class Vista
     {
         System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("El sistema ha llegado a su límite, no es posible ingresar otra familia");
-        System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
 
     //Nueva familia
@@ -122,7 +122,7 @@ public class Vista
     public void mostrarFamilias(String[] capaces)
     {
         System.out.println("\nLas familias que pueden acoger a este perro son:");
-        for (int i = 0; cf <= capaces.length; i++)
+        for (int i = 0; i < capaces.length; i++)
         {
             if (capaces[i] != null)
             {
@@ -135,6 +135,13 @@ public class Vista
         System.out.println("\nIngrese la familia que acogerá al perro");
         scan.nextLine();
         return scan.nextLine();
+    }
+
+    public void perroAsignado()
+    {
+        System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("El perro ya fue asignado a un hogar");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
     
 }

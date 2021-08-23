@@ -11,19 +11,29 @@ public class Perrera
 {
     private String[] hogarTemporal;
     private boolean sinHogar;
+    private boolean asignado;
 
     public Perrera() //constructor
     {  
         hogarTemporal = new String[15];
         sinHogar = false;
+        asignado = false;
     }
     
     public void asignarPerro(Perrito p, String[][] f)
     {
         int cH = 0;
-        if (p.getAsignado() == false)
-        {
-            for (int cF = 0; cF <= f.length; cF++)
+        int limite = 0;
+        for (int i = 0; i < f.length; i++)
+            {
+                if (f[i] == null)
+                {
+                    limite = i;
+                    break;
+                }
+            }
+
+            for (int cF = 0; cF < limite; cF++)
             {
                 if (p.getPeligrosidad() == true) //el perro es peligroso
                 {
@@ -62,13 +72,11 @@ public class Perrera
                         }
                     }
                 }
-                cF++;
             }
             if ( hogarTemporal[0] == null)
             {
                 sinHogar = true;
             }
-        }
     }
 
     public void acogerPerro(String ape, String[][] fam)
@@ -76,29 +84,56 @@ public class Perrera
         boolean bandera = false;
         int nuevasMascotas = 0;
 
-        for (int i = 0; i <= hogarTemporal.length; i++) //validar que la familia si puede acoger al perro
+        int lim1 = 0;
+        for (int k = 0; k < hogarTemporal.length; k++)
+        {
+            
+            if (hogarTemporal[k] == null)
+            {
+                lim1 = k;
+                break;
+            }
+        }
+
+        for (int i = 0; i < lim1; i++) //validar que la familia si puede acoger al perro
         {
             if (hogarTemporal[i].equals(ape))
             {
                 bandera = true;
-            }
-            else
-            {
-                bandera = false;
+                break;
             }
         }
 
         if (bandera == true)
         {
-            for (int j = 0; j <= fam.length; j++)
+            int lim = 0;
+            for (int n = 0; n < fam.length; n++)
+            {
+                if (fam[n] == null)
+                {
+                    lim = n;
+                    break;
+                }
+            }
+
+            for (int j = 0; j < lim; j++)
             {
                 if (fam[j][0].equals(ape))
                 {
-                    nuevasMascotas = Integer.parseInt(fam[j][0]) + 1;
+                    nuevasMascotas = Integer.parseInt(fam[j][4]) + 1;
                     fam[j][4] = Integer.toString(nuevasMascotas);
-                    
+                    System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    System.out.println("La familia " + ape + " ahora tiene " + nuevasMascotas + " mascotas acogidas");
+                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    asignado = true;
                 }
             }
+        }
+        else
+        {
+            System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("La familia no es apta para acoger el perro, porfavor inténtelo de nuevo");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         }
     }
 
@@ -107,8 +142,13 @@ public class Perrera
         return hogarTemporal;
     }
 
-    public String[] getSinHogar()
+    public boolean getSinHogar()
     {
         return sinHogar;
+    }
+
+    public boolean getAsignado()
+    {
+        return asignado;
     }
 }

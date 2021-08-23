@@ -13,7 +13,6 @@ public class Perrito
     private int salud;
     private String color;
     private String nombre;
-    private boolean asignado;
     private boolean peligro;
     private String[] razasP = {"pit bull terrier", "american staffordshire terrier", "tosa inu", "dogo argentino", "dogo guatemalteco",
                                "fila brasileño", "presa canario", "dóberman", "gran perro japónes", "mástin napolitano", "presa mallorqui",
@@ -27,11 +26,10 @@ public class Perrito
         salud = sa;
         color = c;
         nombre = c;
-        asignado = false;
         peligro = false;    
     } 
 
-    public boolean getPeligrosidad()
+    public void calcularPeligrosidad()
     {
         int c = 0;
         while (peligro == false)
@@ -39,10 +37,13 @@ public class Perrito
             if (razasP[c].equals(raza.toLowerCase()))
             {
                 peligro = true;
-                break;
             }
             c++;
         }
+    }
+
+    public boolean getPeligrosidad()
+    {
         return peligro;
     }
 
@@ -54,11 +55,6 @@ public class Perrito
     public String getSize()
     {
         return size;
-    }
-
-    public boolean getAsignado()
-    {
-        return asignado;
     }
     
 }

@@ -63,8 +63,18 @@ class Driver
 
 			if (opcion == 3)
 			{
-				perrera.asignarPerro(perro, Familias);
-				vista.mostrarFamilias(perrera.getHogarTemporal());
+				if (perrera.getAsignado() == false)
+				{
+					perrera.asignarPerro(perro, Familias);
+					vista.mostrarFamilias(perrera.getHogarTemporal());
+					String familiaTemporal = vista.pedirFamilia();
+					perrera.acogerPerro(familiaTemporal, Familias);
+				}
+				else
+				{
+					vista.perroAsignado();
+				}
+				
 			}
 
 			//Otra ocpión

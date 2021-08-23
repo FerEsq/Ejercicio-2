@@ -14,8 +14,8 @@ public class Familia
     public Familia()
     {
         familias[0] = new String[]{"Esquivel", "4", "1", "3", "1"}; 
-        familias[1] = new String[]{"De León", "3", "0", "3", "1"}; 
-        familias[2] = new String[]{"Girón", "2", "0", "2", "0"}; 
+        familias[1] = new String[]{"De Leon", "3", "0", "3", "1"}; 
+        familias[2] = new String[]{"Giron", "2", "0", "2", "0"}; 
     }
     
     public Familia(String apellido, String miembros, String chicos, String grandes, String mascotas) //constructor
@@ -24,8 +24,8 @@ public class Familia
         vectorF = new String[]{apellido, miembros, chicos, grandes, mascotas}; 
 
         familias[0] = new String[]{"Esquivel", "4", "1", "3", "1"}; 
-        familias[1] = new String[]{"de León", "3", "0", "3", "1"}; 
-        familias[2] = new String[]{"Girón", "2", "0", "2", "0"}; 
+        familias[1] = new String[]{"de Leon", "3", "0", "3", "1"}; 
+        familias[2] = new String[]{"Giron", "2", "0", "2", "0"}; 
     } 
 
     public String[][] ingresarFamilia(int pos, String[][] fam) 
