@@ -2,13 +2,13 @@ import javax.lang.model.util.ElementScanner14;
 
 /* Nombre: Perrera.java
  * Programador: Fernanda Esquivel (esq21542@uvg.edu.gt).
- * Descripción: ---------------------
  * Lenguaje: Java
  * Recursos: Visual Studio Code
  * Historial: Finalizado el 22.08.2021 */
 
 public class Perrera 
 {
+    //Propiedades
     private String[] hogarTemporal;
     private boolean sinHogar;
     private boolean asignado;
@@ -20,20 +20,19 @@ public class Perrera
         asignado = false;
     }
     
-    public void asignarPerro(Perrito p, String[][] f)
+    public void asignarPerro(Perrito p, String[][] f) //busca que familias puede acoger al perro
     {
         int cH = 0;
         int limite = 0;
-        for (int i = 0; i < f.length; i++)
+        for (int i = 0; i < f.length; i++) //el número de familias que están ingresadas en el sistema
+        {
+            if (f[i] == null)
             {
-                if (f[i] == null)
-                {
-                    limite = i;
-                    break;
-                }
+                limite = i;
+                break;
             }
-
-            for (int cF = 0; cF < limite; cF++)
+        }
+            for (int cF = 0; cF < limite; cF++) //recorre todo el array de familias
             {
                 if (p.getPeligrosidad() == true) //el perro es peligroso
                 {
@@ -73,19 +72,20 @@ public class Perrera
                     }
                 }
             }
-            if ( hogarTemporal[0] == null)
-            {
-                sinHogar = true;
-            }
+
+        if (hogarTemporal[0] == null) //si no hay ninguna familia apta (array de familias aptas vacio)
+        {
+            sinHogar = true;
+        }
     }
 
-    public void acogerPerro(String ape, String[][] fam)
+    public void acogerPerro(String ape, String[][] fam) //indicar que la familia va a acoger el perro
     {
         boolean bandera = false;
         int nuevasMascotas = 0;
 
         int lim1 = 0;
-        for (int k = 0; k < hogarTemporal.length; k++)
+        for (int k = 0; k < hogarTemporal.length; k++) //el número de familias que están ingresadas en array de acogidas
         {
             
             if (hogarTemporal[k] == null)
@@ -95,7 +95,7 @@ public class Perrera
             }
         }
 
-        for (int i = 0; i < lim1; i++) //validar que la familia si puede acoger al perro
+        for (int i = 0; i < lim1; i++) //validar que la familia ingresada esta dentro del array (si puede acoger al perro)
         {
             if (hogarTemporal[i].equals(ape))
             {
@@ -104,10 +104,10 @@ public class Perrera
             }
         }
 
-        if (bandera == true)
+        if (bandera == true) //la familia si es capaz de acoger al perro
         {
             int lim = 0;
-            for (int n = 0; n < fam.length; n++)
+            for (int n = 0; n < fam.length; n++) //limite de familias en el array de familias 
             {
                 if (fam[n] == null)
                 {
@@ -120,7 +120,7 @@ public class Perrera
             {
                 if (fam[j][0].equals(ape))
                 {
-                    nuevasMascotas = Integer.parseInt(fam[j][4]) + 1;
+                    nuevasMascotas = Integer.parseInt(fam[j][4]) + 1; //se le suma una mascota a las familias
                     fam[j][4] = Integer.toString(nuevasMascotas);
                     System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     System.out.println("La familia " + ape + " ahora tiene " + nuevasMascotas + " mascotas acogidas");
@@ -131,9 +131,9 @@ public class Perrera
         }
         else
         {
-            System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             System.out.println("La familia no es apta para acoger el perro, porfavor inténtelo de nuevo");
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         }
     }
 
@@ -149,6 +149,7 @@ public class Perrera
 
     public boolean getAsignado()
     {
+        
         return asignado;
     }
 }

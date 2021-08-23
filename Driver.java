@@ -1,7 +1,6 @@
 
 /* Nombre: Driver.java
  * Programador: Fernanda Esquivel (esq21542@uvg.edu.gt).
- * Descripción: Driver program que implementa el menú de opciones para la búsqueda del perro
  * Lenguaje: Java
  * Recursos: Visual Studio Code
  * Historial: Finalizado el 13.08.2021
@@ -27,7 +26,7 @@ class Driver
 		int posicion = 3;
 
 		//Mensajes de bienvenida
-		vista.mostrarInicio();
+		vista.mostrarInicio(familia, perro);
 				
 		while (opcion != 4)
 		{
@@ -55,33 +54,33 @@ class Driver
 				System.out.println(perro.getRaza());
 			}
 
-			if (opcion == 2)
-			{
-				perro = new Perrito(vista.pedirRaza(), vista.pedirSize(), vista.pedirEdad(), vista.pedirSalud(), vista.pedirColor(), vista.pedirNombre());
-				System.out.println(perro.getRaza());
-			}
-
 			if (opcion == 3)
 			{
 				if (perrera.getAsignado() == false)
 				{
 					perrera.asignarPerro(perro, Familias);
-					vista.mostrarFamilias(perrera.getHogarTemporal());
-					String familiaTemporal = vista.pedirFamilia();
-					perrera.acogerPerro(familiaTemporal, Familias);
+					if (perrera.getSinHogar() == false)
+					{
+						vista.mostrarFamilias(perrera.getHogarTemporal());
+						String familiaTemporal = vista.pedirFamilia();
+						perrera.acogerPerro(familiaTemporal, Familias);
+					}
+					else
+					{
+						vista.sinHogar();
+					}	
 				}
-				else
+				else if (perrera.getAsignado() == true)
 				{
 					vista.perroAsignado();
 				}
-				
 			}
 
 			//Otra ocpión
-			/*else
+			else
 			{
 				System.out.println("Esa opción no existe, intente de nuevo\n");
-			}*/
+			}
 		}
 	}
 }

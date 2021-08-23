@@ -1,7 +1,6 @@
 
 /* Nombre: Vista.java
  * Programador: Fernanda Esquivel (esq21542@uvg.edu.gt).
- * Descripción: ---------------------
  * Lenguaje: Java
  * Recursos: Visual Studio Code
  * Historial: Finalizado el 22.08.2021 */
@@ -16,15 +15,15 @@ public class Vista
     public Vista() //constructor
     {  
         scan = new Scanner(System.in);
-        fam  = new Familia();
     }
 
     //Mensajes de bienvenida
-    public void mostrarInicio()
+    public void mostrarInicio(Familia fam, Perrito per)
     {
         System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println(" ✦ Bienvenido a Hogares Temporales para Canes (HTC) ✦ \n");
+		System.out.println("   ✦ Bienvenid@ a Hogares Temporales para Canes (HTC) ✦ \n");
 		System.out.println(" - Hay tres familias en el sistema: " + fam.getFamilias()[0][0] + ", " + fam.getFamilias()[1][0] + ", " + fam.getFamilias()[2][0]);
+        System.out.println(" - Hay un perro en el sistema de raza: " + per.getRaza());
         System.out.println(" - Recuerde darle doble enter al ingresar un dato");
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     }
@@ -142,6 +141,13 @@ public class Vista
         System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("El perro ya fue asignado a un hogar");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    }
+
+    public void sinHogar()
+    {
+        System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("No hay una familia apta para acoger al perro, se le habilitará un espacio en la perrera");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
     
 }
