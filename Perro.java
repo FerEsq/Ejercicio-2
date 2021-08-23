@@ -46,5 +46,20 @@ public class Perro
         }
         return peligro;
     }
+
+    public String getRaza()
+    {
+        return raza;
+    }
+
+    public String getSize()
+    {
+        return size;
+    }
+
+    public String getAsignado()
+    {
+        return asignado;
+    }
     
 }
